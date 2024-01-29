@@ -39,8 +39,8 @@ class _CartPageState extends State<CartPage> {
     Get.bottomSheet(
       Container(
         height: Get.height * 0.9.h,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+        decoration:  BoxDecoration(
+          gradient: const LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomLeft,
             colors: [
@@ -49,7 +49,7 @@ class _CartPageState extends State<CartPage> {
             ], // Change these colors as needed
           ),
           borderRadius: BorderRadius.vertical(
-            top: Radius.circular(16.0),
+            top: Radius.circular(16.0.r),
           ),
         ),
         child: SingleChildScrollView(
@@ -58,62 +58,55 @@ class _CartPageState extends State<CartPage> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 20.0),
-                  child: Container(
-                    height: 55.0.h,
-                    child: CustomTextField(
-                        keyboardType: TextInputType.name,
-                        validateInput: (value) => Validator.validateName(
-                              name: value,
-                            ),
-                        prefixIcon: const Icon(
-                          Icons.account_box_outlined,
-                          color: Colors.black,
-                        ),
-                        controller: nameController,
-                        hintText: "Name",
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 25.0, horizontal: 16.0)),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 20.0),
-                  child: SizedBox(
-                    height: 55.0.h,
-                    child: CustomTextField(
-                      keyboardType: TextInputType.number,
-                      validateInput: (value) =>
-                          Validator.validatePhoneNumber(phoneNumber: value),
-                      controller: phoneController,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 20.0.w, vertical: 20.0.h),
+                  child:  CustomTextField(
+                      keyboardType: TextInputType.name,
+                      validateInput: (value) => Validator.validateName(
+                        name: value,
+                      ),
                       prefixIcon: const Icon(
-                        Icons.phone_android_sharp,
+                        Icons.account_box_outlined,
                         color: Colors.black,
                       ),
-                      hintText: "Phone",
+                      controller: nameController,
+                      hintText: "Name",
+                      contentPadding:  EdgeInsets.symmetric(
+                          vertical: 12.0.h, horizontal: 16.0.w)),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 20.0.w, vertical: 20.0.h),
+                  child: CustomTextField(
+                    keyboardType: TextInputType.number,
+                    validateInput: (value) =>
+                        Validator.validatePhoneNumber(phoneNumber: value),
+                    controller: phoneController,
+                    prefixIcon: const Icon(
+                      Icons.phone_android_sharp,
+                      color: Colors.black,
                     ),
+                    contentPadding:  EdgeInsets.symmetric(
+                        vertical: 12.0.h, horizontal: 16.0.w),
+                    hintText: "Phone",
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 20.0),
-                  child: Container(
-                    height: 55.0.h,
-                    child: CustomTextField(
-                        keyboardType: TextInputType.name,
-                        validateInput: (value) => Validator.validateAddress(
-                              address: value,
-                            ),
-                        prefixIcon: const Icon(
-                          Icons.place_outlined,
-                          color: Colors.black,
-                        ),
-                        controller: addressController,
-                        hintText: "Address",
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 25.0, horizontal: 16.0)),
-                  ),
+                  padding:  EdgeInsets.symmetric(
+                      horizontal: 20.0.w, vertical: 20.0.h),
+                  child:CustomTextField(
+                      keyboardType: TextInputType.name,
+                      validateInput: (value) => Validator.validateAddress(
+                        address: value,
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.place_outlined,
+                        color: Colors.black,
+                      ),
+                      controller: addressController,
+                      hintText: "Address",
+                      contentPadding:  EdgeInsets.symmetric(
+                          vertical: 12.0.h, horizontal: 16.0.w))
                 ),
                 CustomElevatedBtn(
                   height: 40.h,
@@ -181,7 +174,7 @@ class _CartPageState extends State<CartPage> {
           "CART",
           style: TextStyle(
               fontFamily: 'BebasNeue-Regular',
-              fontSize: 35.sp,
+              fontSize: 25.sp,
               color: Colors.white),
         ),
         centerTitle: true,
@@ -192,14 +185,14 @@ class _CartPageState extends State<CartPage> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius:
-              BorderRadius.circular(20), // Adjust the radius as needed
+              BorderRadius.circular(20.r), // Adjust the radius as needed
         ),
-        margin: const EdgeInsets.only(bottom: 5.0),
+        margin: EdgeInsets.only(bottom: 5.0.w),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding:  EdgeInsets.all(18.0.w),
               child: Obx(
                 () => Text(
                   " Total ₹ : ${_productPriceController.totalPrice.value.toStringAsFixed(1)} rs",
@@ -208,7 +201,7 @@ class _CartPageState extends State<CartPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: EdgeInsets.all(18.0.w),
               child: ElevatedButton(
                 onPressed: () {
                   showCustomBottomSheet();
@@ -217,15 +210,15 @@ class _CartPageState extends State<CartPage> {
                   backgroundColor: const MaterialStatePropertyAll(Colors.black),
                   overlayColor: MaterialStateProperty.all(Colors.teal),
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(9))),
+                      borderRadius: BorderRadius.circular(9.r))),
                 ),
                 child:  Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(right: 15),
-                      child: Icon(Icons.check, color: Color(0xFFFF0000)),
+                     Padding(
+                      padding: EdgeInsets.only(right: 15.w),
+                      child: const Icon(Icons.check, color: Color(0xFFFF0000)),
                     ),
                     SizedBox(width: 8.w),
                     const Text("Checkout", style: TextStyle(color: Colors.white)),
@@ -237,165 +230,169 @@ class _CartPageState extends State<CartPage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            StreamBuilder(
-              stream: FirebaseFirestore.instance
-                  .collection('cart')
-                  .doc(user!.uid)
-                  .collection('cartOrders')
-                  .snapshots(),
-              builder: (BuildContext context,
-                  AsyncSnapshot<QuerySnapshot> snapshot) {
-                if (snapshot.hasError) {
-                  return const Center(
-                    child: Text("Error"),
-                  );
-                }
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return SizedBox(
-                    height: Get.height / 5.h,
-                    child: const Center(
-                      child: CupertinoActivityIndicator(),
-                    ),
-                  );
-                }
+        child: Container(
+          width: ScreenUtil().screenWidth,
+          height: ScreenUtil().screenHeight,
+          child: Column(
+            children: [
+              StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection('cart')
+                    .doc(user!.uid)
+                    .collection('cartOrders')
+                    .snapshots(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.hasError) {
+                    return const Center(
+                      child: Text("Error"),
+                    );
+                  }
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return SizedBox(
+                      height: Get.height / 5.h,
+                      child: const Center(
+                        child: CupertinoActivityIndicator(),
+                      ),
+                    );
+                  }
 
-                if (snapshot.data!.docs.isEmpty) {
-                  return const Center(
-                    child: Text("No products found!"),
-                  );
-                }
+                  if (snapshot.data!.docs.isEmpty) {
+                    return const Center(
+                      child: Text("No products found!"),
+                    );
+                  }
 
-                if (snapshot.data != null) {
-                  return ListView.builder(
-                    itemCount: snapshot.data!.docs.length,
-                    shrinkWrap: true,
-                    physics: const BouncingScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      final productData = snapshot.data!.docs[index];
-                      CartModel cartModel = CartModel(
-                        productId: productData['productId'],
-                        categoryId: productData['categoryId'],
-                        productName: productData['productName'],
-                        categoryName: productData['categoryName'],
-                        price: productData['price'],
-                        productImage: productData['productImage'],
-                        productDescription: productData['productDescription'],
-                        createdAt: productData['createdAt'],
-                        updatedAt: productData['updatedAt'],
-                        productQuantity: productData['productQuantity'],
-                        productTotalPrice: productData['productTotalPrice'],
-                        consoleType: productData['consoleType'],
-                      );
+                  if (snapshot.data != null) {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.docs.length,
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final productData = snapshot.data!.docs[index];
+                        CartModel cartModel = CartModel(
+                          productId: productData['productId'],
+                          categoryId: productData['categoryId'],
+                          productName: productData['productName'],
+                          categoryName: productData['categoryName'],
+                          price: productData['price'],
+                          productImage: productData['productImage'],
+                          productDescription: productData['productDescription'],
+                          createdAt: productData['createdAt'],
+                          updatedAt: productData['updatedAt'],
+                          productQuantity: productData['productQuantity'],
+                          productTotalPrice: productData['productTotalPrice'],
+                          consoleType: productData['consoleType'],
+                        );
 
-                      //calculate price
-                      _productPriceController.fetchProductPrice();
-                      return SwipeActionCell(
-                        key: ObjectKey(cartModel.productId),
-                        trailingActions: [
-                          SwipeAction(
-                            title: "Delete",
-                            forceAlignmentToBoundary: true,
-                            performsFirstActionWithFullSwipe: true,
-                            onTap: (CompletionHandler handler) async {
-                              print('deleted');
+                        //calculate price
+                        _productPriceController.fetchProductPrice();
+                        return SwipeActionCell(
+                          key: ObjectKey(cartModel.productId),
+                          trailingActions: [
+                            SwipeAction(
+                              title: "Delete",
+                              forceAlignmentToBoundary: true,
+                              performsFirstActionWithFullSwipe: true,
+                              onTap: (CompletionHandler handler) async {
+                                print('deleted');
 
-                              await FirebaseFirestore.instance
-                                  .collection('cart')
-                                  .doc(user!.uid)
-                                  .collection('cartOrders')
-                                  .doc(cartModel.productId)
-                                  .delete();
-                            },
-                          )
-                        ],
-                        child: Card(
-                          elevation: 5,
-                          color: AppConstant.appTextColor,
-                          child: ListTile(
-                            leading: CircleAvatar(
-                              backgroundColor: AppConstant.appMainColor,
-                              backgroundImage:
-                                  NetworkImage(cartModel.productImage[0]),
-                            ),
-                            title: Text(cartModel.productName),
-                            subtitle: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(
-                                    "Price : ${cartModel.productTotalPrice.toString()}"),
-                                Row(
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () async {
-                                        if (cartModel.productQuantity > 1) {
-                                          await FirebaseFirestore.instance
-                                              .collection('cart')
-                                              .doc(user!.uid)
-                                              .collection('cartOrders')
-                                              .doc(cartModel.productId)
-                                              .update({
-                                            'productQuantity':
-                                                cartModel.productQuantity - 1,
-                                            'productTotalPrice':
-                                                (double.parse(cartModel.price) *
-                                                    (cartModel.productQuantity -
-                                                        1))
-                                          });
-                                        }
-                                      },
-                                      child: const CircleAvatar(
-                                        radius: 14.0,
-                                        backgroundColor:
-                                            AppConstant.appMainColor,
-                                        child: Text('-'),
+                                await FirebaseFirestore.instance
+                                    .collection('cart')
+                                    .doc(user!.uid)
+                                    .collection('cartOrders')
+                                    .doc(cartModel.productId)
+                                    .delete();
+                              },
+                            )
+                          ],
+                          child: Card(
+                            elevation: 5,
+                            color: AppConstant.appTextColor,
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundColor: AppConstant.appMainColor,
+                                backgroundImage:
+                                    NetworkImage(cartModel.productImage[0]),
+                              ),
+                              title: Text(cartModel.productName),
+                              subtitle: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                      "Price : ${cartModel.productTotalPrice.toString()}"),
+                                  Row(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () async {
+                                          if (cartModel.productQuantity > 1) {
+                                            await FirebaseFirestore.instance
+                                                .collection('cart')
+                                                .doc(user!.uid)
+                                                .collection('cartOrders')
+                                                .doc(cartModel.productId)
+                                                .update({
+                                              'productQuantity':
+                                                  cartModel.productQuantity - 1,
+                                              'productTotalPrice':
+                                                  (double.parse(cartModel.price) *
+                                                      (cartModel.productQuantity -
+                                                          1))
+                                            });
+                                          }
+                                        },
+                                        child: CircleAvatar(
+                                          radius: 14.0.r,
+                                          backgroundColor:
+                                              AppConstant.appMainColor,
+                                          child: const Text('-'),
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: Get.width / 20.0.w,
-                                    ),
-                                    GestureDetector(
-                                      onTap: () async {
-                                        if (cartModel.productQuantity > 0) {
-                                          await FirebaseFirestore.instance
-                                              .collection('cart')
-                                              .doc(user!.uid)
-                                              .collection('cartOrders')
-                                              .doc(cartModel.productId)
-                                              .update({
-                                            'productQuantity':
-                                                cartModel.productQuantity + 1,
-                                            'productTotalPrice': double.parse(
-                                                    cartModel.price) +
-                                                double.parse(cartModel.price) *
-                                                    (cartModel.productQuantity)
-                                          });
-                                        }
-                                      },
-                                      child: const CircleAvatar(
-                                        radius: 14.0,
-                                        backgroundColor:
-                                            AppConstant.appMainColor,
-                                        child: Text('+'),
+                                      SizedBox(
+                                        width: Get.width / 20.0.w,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Text("Quantity : ${cartModel.productQuantity}")
-                              ],
+                                      GestureDetector(
+                                        onTap: () async {
+                                          if (cartModel.productQuantity > 0) {
+                                            await FirebaseFirestore.instance
+                                                .collection('cart')
+                                                .doc(user!.uid)
+                                                .collection('cartOrders')
+                                                .doc(cartModel.productId)
+                                                .update({
+                                              'productQuantity':
+                                                  cartModel.productQuantity + 1,
+                                              'productTotalPrice': double.parse(
+                                                      cartModel.price) +
+                                                  double.parse(cartModel.price) *
+                                                      (cartModel.productQuantity)
+                                            });
+                                          }
+                                        },
+                                        child: CircleAvatar(
+                                          radius: 14.0.r,
+                                          backgroundColor:
+                                              AppConstant.appMainColor,
+                                          child: const Text('+'),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Text("Quantity : ${cartModel.productQuantity}")
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                }
+                        );
+                      },
+                    );
+                  }
 
-                return Container();
-              },
-            ),
-          ],
+                  return Container();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     ));

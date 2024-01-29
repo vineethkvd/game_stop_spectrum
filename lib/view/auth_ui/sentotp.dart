@@ -28,7 +28,7 @@ class _SendOtpPnoState extends State<SendOtpPno> {
         appBar: AppBar(
           title: Text("SEND OTP",
               style:
-                  TextStyle(fontSize: 35.sp, fontFamily: 'BebasNeue-Regular')),
+                  TextStyle(fontSize: 25.sp, fontFamily: 'BebasNeue-Regular',color: Colors.white)),
           centerTitle: true,
           backgroundColor: AppConstant.transparent,
           elevation: 0,
@@ -71,7 +71,7 @@ class _SendOtpPnoState extends State<SendOtpPno> {
                                   Icons.phone_android_sharp,
                                   color: Colors.black,
                                 ),
-                                hintText: "      enter number",
+                                hintText: "Enter number",
                                 contentPadding: EdgeInsets.symmetric(
                                     vertical: 15.0.h, horizontal: 12.0.w)),
                           ),

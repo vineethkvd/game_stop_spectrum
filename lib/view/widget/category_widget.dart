@@ -37,7 +37,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
           List<QueryDocumentSnapshot<Object?>> data = snapshot.data!;
           int dataLength = data.length;
           return SizedBox(
-            height: 110.h,
+            height: 120.h,
             width: size.width.w,
             child: ListView.builder(
               itemCount: dataLength,
@@ -53,7 +53,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                   updatedAt: productData['updatedAt'],
                 );
                 return Padding(
-                  padding: const EdgeInsets.all(.0),
+                  padding: EdgeInsets.all(.0.w),
                   child: GestureDetector(
                     onTap: () => Get.to(
                             () => SingleCategoryProducts(
@@ -66,7 +66,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(5.0),
+                            padding: EdgeInsets.all(5.0.w),
                             child: Column(
                               children: [
                                 Container(
@@ -87,9 +87,9 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                   child: Stack(
                                       alignment: Alignment.center,
                                       children: [
-                                        const CircleAvatar(
+                                       CircleAvatar(
                                           backgroundColor: Colors.black,
-                                          radius: 35,
+                                          radius: 35.r,
                                         ),
                                         CircleAvatar(
                                           radius: 35,
@@ -120,7 +120,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                   categoryModel.categoryName,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 13.sp,
+                                    fontSize: 12.sp,
                                     color: Colors.white,
                                   ),
                                 )

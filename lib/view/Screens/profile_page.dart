@@ -29,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
         appBar: AppBar(
           title: Text("PROFILE PAGE",
               style:
-                  TextStyle(fontSize: 26.sp, fontFamily: 'BebasNeue-Regular')),
+                  TextStyle(fontSize: 26.sp, fontFamily: 'BebasNeue-Regular',color: Colors.white)),
           centerTitle: true,
           backgroundColor: AppConstant.transparent,
           elevation: 0,

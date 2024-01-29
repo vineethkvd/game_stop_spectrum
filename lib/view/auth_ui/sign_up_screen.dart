@@ -80,7 +80,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     alignment: Alignment.center,
                     child: SizedBox(
                       width: Get.width * 0.85.w,
-                      height: Get.height * 0.40.h,
+                      height: Get.height * 0.46.h,
                       child: Form(
                         key: _formKey,
                         child: Column(

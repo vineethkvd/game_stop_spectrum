@@ -36,37 +36,36 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       child: Scaffold(
         backgroundColor: AppConstant.black,
         bottomNavigationBar: Container(
-          // Wrap the bottomNavigationBar in a Container
-          padding:  const EdgeInsets.all(12.0),
+          padding:  EdgeInsets.all(8.0.w),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                width: Get.width*0.42.w,
+                width: Get.width*0.47,
                 child: ElevatedButton(
                   onPressed: () {
                     _getWhatsappMsg.sendMessageOnWhatsApp(productModel: widget.productModel);
                   },
                   style: ButtonStyle(
-                    backgroundColor:  MaterialStatePropertyAll(Colors.white),
+                    backgroundColor: const MaterialStatePropertyAll(Colors.white),
                     overlayColor: MaterialStateProperty.all(Colors.teal),
                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(9.r))),
                   ),
-                  child: Row(
+                  child:  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Icon(Icons.share, color: Color(0xFFFF0000)),
-                      SizedBox(width: 8.w),
-                      Text("Share on WhatsApp",
-                          style: TextStyle(color: Colors.black,fontFamily: 'Roboto-Bold',fontSize: 10.sp)),
+                      const Icon(Icons.share, color: Color(0xFFFF0000),size: 16,),
+                      SizedBox(width: 5.w),
+                       Text("Share on WhatsApp",
+                          style: TextStyle(color: Colors.black,fontFamily: 'Roboto-Bold', fontSize: 11.sp,)),
                     ],
                   ),
                 ),
               ),
               SizedBox(
-                width: Get.width*0.42.w,
+                width: Get.width*0.47,
                 child: ElevatedButton(
                   onPressed: () async {
                     await _CartController.checkProductExistence(
@@ -75,19 +74,19 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   style: ButtonStyle(
                       overlayColor: MaterialStateProperty.all(Colors.teal),
                       shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(9.r))),
+                          borderRadius: BorderRadius.circular(9))),
                       backgroundColor: const MaterialStatePropertyAll(Colors.white)),
-                  child: Row(
+                  child:  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Icon(Icons.shopping_cart, color: Color(0xFFFF0000)),
-                      SizedBox(width: 8.w),
-                      Text("Add to Cart",
+                      const Icon(Icons.shopping_cart,size: 15, color: Color(0xFFFF0000)),
+                      SizedBox(width: 5.w),
+                       Text("Add to Cart",
                           style: TextStyle(
                             fontFamily: 'Roboto-Bold',
+                            fontSize: 10.sp,
                             color: Colors.black,
-                            fontSize: 10.sp
                           )),
                     ],
                   ),
@@ -98,9 +97,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         ),
         appBar: AppBar(
           centerTitle: true,
-          title: Text(
+          title:  Text(
             "PRODUCTS ",
-            style: TextStyle(fontFamily: 'BebasNeue-Regular', fontSize: 30.sp),
+            style: TextStyle(fontFamily: 'BebasNeue-Regular', fontSize: 25.sp,color: Colors.white),
           ),
           backgroundColor: AppConstant.transparent,
           elevation: 0,
@@ -108,8 +107,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         body: SingleChildScrollView(
           child: Container(
             alignment: Alignment.center,
-            width: Get.width.w,
-            height: Get.height.h,
+            width: ScreenUtil().screenWidth,
+            height: ScreenUtil().screenHeight,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,18 +139,18 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             ),
                           ),
                           errorWidget: (context, url, error) =>
-                              const Icon(Icons.error),
+                          const Icon(Icons.error),
                         ),
                       ),
                     );
                   },
                   options: CarouselOptions(
                     scrollDirection: Axis.horizontal,
-                    height: 450.h,
+                    height: 300.h,
                     autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 2),
                     autoPlayAnimationDuration:
-                        const Duration(milliseconds: 400),
+                    const Duration(milliseconds: 400),
                     pauseAutoPlayOnTouch: true,
                     enlargeCenterPage: true,
                     aspectRatio: 2.5,
@@ -169,26 +168,26 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
                     widget.productModel.productImage.length,
-                    (index) => Container(
+                        (index) => Container(
                       width: currentindex == index ? 17 : 7,
-                      height: 7.0.h,
-                      margin: const EdgeInsets.symmetric(horizontal: 3.0),
+                      height: 7.0,
+                      margin:  EdgeInsets.symmetric(horizontal: 3.0.w),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.r),
                         color:
-                            currentindex == index ? Colors.teal : Colors.white,
+                        currentindex == index ? Colors.teal : Colors.white,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0.w),
                   child: SizedBox(
                     height: Get.height * 0.4.h,
                     child: Card(
                       elevation: 5.0,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(10.0.r),
                       ),
                       child: Container(
                         decoration: BoxDecoration(
@@ -202,12 +201,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         child: Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0.w),
                               child: Container(
                                 alignment: Alignment.topLeft,
                                 child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       widget.productModel.productName,
@@ -222,14 +221,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding:  EdgeInsets.all(8.0.w),
                               child: Container(
                                 alignment: Alignment.topLeft,
                                 child: Row(
                                   children: [
                                     BlinkText(
                                         "Price : ₹ ${widget.productModel.price}",
-                                        style:  TextStyle(
+                                        style: TextStyle(
                                             fontFamily: 'Anton-Regular',
                                             fontSize: 35.0.sp,
                                             color: Colors.white),
@@ -242,12 +241,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               ),
                             ),
                             Padding(
-                              padding:  EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0.w),
                               child: Container(
                                 alignment: Alignment.topLeft,
                                 child: Text(
-                                  "Category : " +
-                                      widget.productModel.categoryName,
+                                  "Category : ${widget.productModel.categoryName}",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18.sp,

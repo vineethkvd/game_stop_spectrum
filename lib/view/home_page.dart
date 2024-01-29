@@ -12,6 +12,7 @@ import 'package:game_stop_spectrum/view/widget/category_widget.dart';
 import 'package:game_stop_spectrum/view/widget/custom_grid.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 import '../controller/get_user_data_controller.dart';
 import '../controller/google_sign_in_controller.dart';
 import '../services/contacts/contact-us.dart';
@@ -67,14 +68,14 @@ class _MainPageState extends State<HomePage> {
           animationDuration: const Duration(milliseconds: 300),
           animateChildDecoration: true,
           rtlOpening: false,
-          childDecoration: const BoxDecoration(
+          childDecoration:  BoxDecoration(
             boxShadow: <BoxShadow>[
               BoxShadow(
                 color: Colors.black12,
-                blurRadius: 0.0,
+                blurRadius: 0.0.r,
               ),
             ],
-            borderRadius: BorderRadius.all(Radius.circular(16)),
+            borderRadius: BorderRadius.all(Radius.circular(16.r)),
           ),
           drawer: SafeArea(
             child: ListTileTheme(
@@ -85,11 +86,11 @@ class _MainPageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  const SizedBox(
-                    height: 50,
+                   SizedBox(
+                    height: 50.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0.w),
                     child: FutureBuilder<List<QueryDocumentSnapshot<Object?>>>(
                       future: _getUserDataController.getUserData(user!.uid),
                       builder: (context, snapshot) {
@@ -112,8 +113,8 @@ class _MainPageState extends State<HomePage> {
                           // Rest of your widget tree using the 'data'
 
                           return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 20.0),
+                            padding:  EdgeInsets.symmetric(
+                                horizontal: 10.0.w, vertical: 20.0.h),
                             child: ListTile(
                               titleAlignment: ListTileTitleAlignment.center,
                               title: Text(
@@ -132,7 +133,7 @@ class _MainPageState extends State<HomePage> {
                                     fontSize: 10.sp),
                               ),
                               leading: CircleAvatar(
-                                  radius: 22.0,
+                                  radius: 22.0.r,
                                   backgroundColor: AppConstant.appMainColor,
                                   child:
                                   Image.network("${data[0]['userImg']}")),
@@ -149,7 +150,7 @@ class _MainPageState extends State<HomePage> {
                     color: Colors.grey,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: ListTile(
                       onTap: () {
                         Get.to(() => const HomePage());
@@ -169,7 +170,7 @@ class _MainPageState extends State<HomePage> {
                       ),
                     ),
                   ),   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: ListTile(
                       onTap: () {
                         Get.to(() => const ProfilePage());
@@ -192,7 +193,7 @@ class _MainPageState extends State<HomePage> {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: ListTile(
                       titleAlignment: ListTileTitleAlignment.center,
                       title: const Text(
@@ -213,7 +214,7 @@ class _MainPageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: ListTile(
                       onTap: () {
                         ContactUsDialog.showContactUsDialog(context);
@@ -235,7 +236,7 @@ class _MainPageState extends State<HomePage> {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
                     child: ListTile(
                       onTap: () async {
                         GoogleSignIn googleSignIn = GoogleSignIn();
@@ -261,13 +262,13 @@ class _MainPageState extends State<HomePage> {
                   ),
                   const Spacer(),
                   DefaultTextStyle(
-                    style: const TextStyle(
-                      fontSize: 12,
+                    style:  TextStyle(
+                      fontSize: 12.sp,
                       color: Colors.white54,
                     ),
                     child: Container(
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 16.0,
+                      margin: EdgeInsets.symmetric(
+                        vertical: 16.0.w,
                       ),
                       child: const Text(
                         'Terms of Service | Privacy Policy',
@@ -288,25 +289,32 @@ class _MainPageState extends State<HomePage> {
                   onTap: () {
                     Get.to(const CartPage());
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.only(right: 18),
+                  child:  Padding(
+                    padding: EdgeInsets.only(right: 18.w),
                     child: Icon(Icons.shopping_cart_outlined,
-                        color: Color(0xFFFF0000), size: 30),
+                        color: const Color(0xFFFF0000), size: 30.w),
                   ),
                 )
               ],
               leading: InkWell(
                 onTap: () => _advancedDrawerController..showDrawer(),
-                child: const Icon(
+                child:  Icon(
                   Icons.menu,
                   color: Colors.teal,
-                  size: 30,
+                  size: 30.w,
                 ),
               ),
               centerTitle: true,
-              title:  Text(
+              title:  GradientText(
                 "GET YOUR GAMES HERE ",
-                style: TextStyle(fontFamily: 'BebasNeue-Regular', fontSize: 25.sp),
+                style: TextStyle(
+                  fontSize: 20.0.sp,
+                ),
+                colors: const [
+                  Colors.blue,
+                  Colors.red,
+                  Colors.teal,
+                ],
               ),
               backgroundColor: AppConstant.transparent,
               elevation: 0,
@@ -316,35 +324,35 @@ class _MainPageState extends State<HomePage> {
                 width: ScreenUtil().screenWidth,
                 height: ScreenUtil().screenHeight,
                 alignment: Alignment.center,
-                child: const Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0.w),
                       child: Text(
                         "Check out these",
                         style: TextStyle(
                             fontFamily: 'BebasNeue-Regular',
-                            fontSize: 28,
+                            fontSize: 20.sp,
                             color: Colors.white),
                       ),
                     ),
-                    BannerWidget(),
+                    const BannerWidget(),
                     SizedBox(
-                      height: 25,
+                      height: 25.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0.w),
                       child: Text(
                         "Genres",
                         style: TextStyle(
                             fontFamily: 'BebasNeue-Regular',
-                            fontSize: 28,
+                            fontSize: 20.sp,
                             color: Colors.white),
                       ),
                     ),
-                    CategoryWidget(),
+                    const CategoryWidget(),
                     SizedBox(
                       height: 25,
                     ),
