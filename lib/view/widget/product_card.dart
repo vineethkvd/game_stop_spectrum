@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../Screens/product_details_page.dart';
 import '../../model/product_model.dart';
@@ -23,52 +24,43 @@ class ProductCard extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: productModel.productImage[0],
               fit: BoxFit.cover,
-              width: double.infinity,
-              height: 150, // Set a fixed height
+              width: Get.width.w,
+              height: 80.h, // Set a fixed height
               placeholder: (context, url) => const Center(
                 child: CircularProgressIndicator(),
               ),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    child: Text(
-                      productModel.productName,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 25,
-                          fontFamily: 'BebasNeue-Regular'),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
+                  Text(
+                    productModel.productName,
+                    style:  TextStyle(
+                        fontWeight: FontWeight.normal,
+                        fontSize: 14.sp,
+                        fontFamily: 'BebasNeue-Regular'),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
-                  const SizedBox(height: 17),
+                  Text("₹${productModel.price}",
+                      style:  TextStyle(
+                          fontFamily: 'BebasNeue-Regular',
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.bold)),
+                  Text(
+                    productModel.productDescription,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: false,
+                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
 
-                  // Price
-                  SizedBox(
-                    height: 20, // Set a fixed height
-                    child: Text("₹${productModel.price}",
-                        style: const TextStyle(
-                            fontFamily: 'BebasNeue-Regular',
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                  const SizedBox(height: 17),
 
-                  // Description
-                  SizedBox(
-                    height: 40, // Set a fixed height
-                    child: Text(
-                      productModel.productDescription,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                    ),
-                  ),
+
                 ],
               ),
             ),
